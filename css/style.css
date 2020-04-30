@@ -1,0 +1,62 @@
+@keyframes sun {
+  100% {
+    background-position: 400% 0;
+  }
+}
+body {
+  background: #000;
+}
+#app {
+  margin: 0 auto;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  align-items: center;
+  justify-content: space-evenly;
+  align-content: space-between;
+  height: 300px;
+  width: 500px;
+}
+#app button {
+  color: white;
+  outline: none;
+  border-radius: 2rem;
+  margin: none;
+  padding: none;
+  list-style: none;
+  border: none;
+  background-image: linear-gradient(90deg, #9b59b6, #3498db, #2ecc71, #f1c40f, #f39c12, #3498db, #9b59b6);
+  background-size: 400%;
+  height: 40px;
+  width: 100px;
+}
+#app button:after {
+  content: "";
+  color: white;
+  outline: none;
+  border-radius: 2rem;
+  margin: none;
+  padding: none;
+  list-style: none;
+  background-image: linear-gradient(90deg, #9b59b6, #3498db, #2ecc71, #f1c40f, #f39c12, #3498db, #9b59b6);
+  background-size: 400%;
+  height: 32px;
+  width: 80px;
+  display: block;
+  border: none;
+  filter: blur(20px);
+  float: left;
+  position: relative;
+  top: 60%;
+  left: -13%;
+}
+#app button:hover {
+  animation: sun 6s infinite;
+}
+#app button:hover:after {
+  animation: sun 6s infinite;
+}
