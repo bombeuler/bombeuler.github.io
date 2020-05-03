@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数学笔记</title>
+  </head>
+  <body>
+    <div id="app">
+      <button v-for="(item,index) in name" @click="btnClick(index)">{{item}}</button>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          name: ["7.定积分", "8.定积分的应用", "9.广义积分", "10.无穷级数"],
+        },
+        methods: {
+          btnClick(index) {
+            let h=(index+1).toString();
+            window.location.assign(`./ma/math${h}.html`);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
