@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>抽签测试</title>
+    <link rel="shortcut icon" href="./images/header.png" type="x-icon/image">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .star {
+            height: 26px;
+            width: 26px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            position: absolute;
+            animation: linear death 1.7s;
+            transition: linear 1.7s;
+        }
+
+        @keyframes death {
+            0% {
+                opacity: 1;
+                transform: scale(1, 1) translateY(0px) rotateZ(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.4, 1.4) translateY(-100px) rotateZ(210deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+        window.onload = function () {
+            var starColor = ["#2ae0c8", "#a2e1d4", "#acf6ef", "#cbf5fb", "#bdf3d4", "#e6e2c3", "#e3c887", "#fad8be",
+                "#fbb8ac", "#fe6673"
+            ];
+            document.onclick = function (event) {
+                var star = document.createElement("div");
+                star.className = "star";
+                document.body.appendChild(star);
+                var e = event || window.event;
+                var colorFate = parseInt(Math.random() * starColor.length);
+                var x = e.clientX;
+                var y = e.clientY;
+                star.style.left = (x - 13) + 'px';
+                star.style.top = (y - 18) + 'px';
+                star.style.backgroundColor = starColor[colorFate];
+                setTimeout(() => {
+                    star.remove();
+                }, 1700);
+            }
+        }
+    </script>
+</body>
+
+</html>
